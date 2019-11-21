@@ -20,7 +20,9 @@ Users will be able to select one of the three options which are temperatures, su
 ## What 3rd Party API(s) will you integrate with?
 
 NASA and Wikipedia api
-https://www.mediawiki.org/wiki/API:Main_page
+
+https://www.mediawiki.org/wiki/API:Main_page 
+
 https://api.nasa.gov/
 
 ## Tech Stack
