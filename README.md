@@ -2,7 +2,7 @@
 # ExploreMars
 
 
-## 2 - 3 Sentence Project Description (Elevator Pitch)
+## Project Description 
 
 ExploreMars will let the users know the temperatures, Mars planet summary and random rover images on mars by selecting three different options.
 
@@ -24,6 +24,7 @@ https://www.mediawiki.org/wiki/API:Main_page
 https://api.nasa.gov/
 
 ## Tech Stack
+
 No framework
 No 3rd party JS libraries
 
