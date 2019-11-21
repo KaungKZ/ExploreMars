@@ -1,6 +1,5 @@
 
-# Project Name / Title
-ExploreMars
+# ExploreMars
 
 
 ## 2 - 3 Sentence Project Description (Elevator Pitch)
