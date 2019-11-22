@@ -1,0 +1,155 @@
+@import url("https://fonts.googleapis.com/css?family=Audiowide|Josefin+Sans|Orbitron&display=swap");
+
+// ============================= Global variables ================================
+$primary-title: "Audiowide", cursive;
+$secondary-title: "Orbitron", sans-serif;
+$content: "Josefin Sans", sans-serif;
+$main-color: #b5540e;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+// =============================== Header ===========================================
+.header {
+  width: 100%;
+  height: 100vh;
+  background-image: url(../images/landing-bg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+
+  .logo {
+    position: absolute;
+    top: 5%;
+    width: 90%;
+    text-align: right;
+  }
+  .content {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .title {
+      margin-top: 6%;
+      font-family: $primary-title;
+      color: #fff;
+      text-align: center;
+      p {
+        font-size: 80px;
+
+        .width-100 {
+          margin-left: -30px;
+          opacity: 0.8;
+          font-size: 2rem;
+          display: block;
+          width: 100%;
+        }
+      }
+    }
+    .app-button {
+      font-family: $secondary-title;
+      padding: 18px 60px;
+      border-radius: 10px;
+      background: $main-color;
+      cursor: pointer;
+      margin-top: 3%;
+      transition: 400ms all;
+      -webkit-box-shadow: 0px 8px 8px 0px hsla(0, 0, 0, 0.5);
+      -moz-box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.5);
+      box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.5);
+      a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 2rem;
+      }
+      &:hover {
+        background: #fff;
+        a {
+          color: $main-color;
+        }
+      }
+    }
+  }
+  .go-down {
+    cursor: pointer;
+    position: absolute;
+    top: 95%;
+    left: 50%;
+    transform: translate(-50%, -95%);
+    animation: 1.5s linear 0s infinite alternate up-down;
+
+    svg {
+      -webkit-filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.5));
+      filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.5));
+    }
+    @keyframes up-down {
+      from {
+        top: 95%;
+      }
+      to {
+        top: 97%;
+      }
+    }
+  }
+}
+// ================================ Description ==========================================
+.description {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: auto;
+  height: 100vh;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 20px 0;
+
+  .what-is-content,
+  .reason-content,
+  .guide-content {
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    .title {
+      text-transform: capitalize;
+      font-family: $primary-title;
+      text-align: center;
+      font-size: 2rem;
+
+      .bold {
+        color: $main-color;
+      }
+    }
+    .text {
+      width: 80%;
+      margin: 0 auto;
+      font-family: $content;
+      font-size: 20px;
+      text-align: center;
+      line-height: 38px;
+
+      .bold {
+        color: $main-color;
+      }
+    }
+  }
+}
+// ============================ media queries ==============================
+
+// ----------------------- Normal Tablet Size -------------------------------
+@media (min-width: 768px) and (max-width: 1024px) {
+}
+
+// ------------------------ Small Tablet Size -----------------------------
+@media (min-width: 481px) and (max-width: 767px) {
+}
+
+// --------------------- Phone Size --------------------------------
+@media (max-width: 480px) {
+}
