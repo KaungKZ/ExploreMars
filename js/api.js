@@ -15,7 +15,6 @@
 
 // function requestToUnsplash(e) {
 //   e.preventDefault();
-//   const nasaKey = "rdWxphCszg82O9eZjLornCA6z5FJEFL2CgMd9Cod";
 //   const urlForRover = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=${nasaKey}`;
 //   let selectedValue = selection.options[selection.selectedIndex].value;
 //   if (selectedValue === "Mercury") selectedValue += " planet";
