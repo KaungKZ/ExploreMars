@@ -2,7 +2,7 @@
 # ExploreMars
 # https://laughing-bardeen-457411.netlify.com/
 
-> **Some UI designs will not work if you open in microsoft edge, uc browser or safari (not tested yet) as some codes are only supported by specific browsers right now.**
+> **Some UI designs will not work if you open in microsoft edge, uc browser or safari (not tested yet) as some codes are only supported by specific browsers right now and not 100 % ready and tested yet.**
 
 ## Project Description 
 
