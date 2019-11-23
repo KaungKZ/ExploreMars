@@ -18,7 +18,9 @@ $main-color: #b5540e;
   background-image: url(../images/landing-bg.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center bottom;
+  //background-position: calc(50% + 50px);
+  //background-position: center center;
+  background-position: 40%;
 
   .logo {
     position: absolute;
@@ -43,7 +45,6 @@ $main-color: #b5540e;
         font-size: 80px;
 
         .width-100 {
-          margin-left: -30px;
           opacity: 0.8;
           font-size: 2rem;
           display: block;
@@ -142,14 +143,165 @@ $main-color: #b5540e;
 }
 // ============================ media queries ==============================
 
-// ----------------------- Normal Tablet Size -------------------------------
-@media (min-width: 768px) and (max-width: 1024px) {
+// ------------------------ Small Tablet Size -----------------------------
+@media (min-width: 481px) and (max-width: 768px) {
+  .header {
+    background-position: 45%;
+
+    .content {
+      .title {
+        width: 80%;
+        margin: 6% auto 0 auto;
+
+        p {
+          font-size: 65px;
+        }
+      }
+      .app-button {
+        width: 40%;
+        text-align: center;
+        margin-top: 5%;
+        padding: 3% 6%;
+        a {
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+  .description {
+    .what-is-content,
+    .reason-content,
+    .guide-content {
+      height: 50%;
+
+      .title {
+        font-size: 1.8rem;
+      }
+      .text {
+        width: 100%;
+      }
+    }
+  }
 }
 
-// ------------------------ Small Tablet Size -----------------------------
-@media (min-width: 481px) and (max-width: 767px) {
+// ----------------------- Normal Tablet Size -------------------------------
+@media (min-width: 769px) and (max-width: 1024px) {
+  .header {
+    background-position: 45%;
+    .content {
+      .app-button {
+        margin-top: 5%;
+        width: 40%;
+        text-align: center;
+        padding: 3% 6%;
+      }
+    }
+  }
+  .description {
+    .what-is-content,
+    .reason-content,
+    .guide-content {
+      height: 25%;
+      .text {
+        width: 100%;
+        font-size: 24px;
+      }
+    }
+  }
 }
 
 // --------------------- Phone Size --------------------------------
 @media (max-width: 480px) {
+  .header {
+    background-position: 48%;
+    .logo {
+      width: 100%;
+      text-align: center;
+    }
+    .content {
+      .title {
+        width: 80%;
+        margin: 25% auto 0 auto;
+
+        p {
+          font-size: 45px;
+          .width-100 {
+            font-size: 1.2rem;
+          }
+        }
+      }
+      .app-button {
+        width: 50%;
+        text-align: center;
+        margin-top: 6%;
+        padding: 6% 6%;
+        a {
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+  .description {
+    .what-is-content,
+    .reason-content,
+    .guide-content {
+      height: 50%;
+
+      .title {
+        font-size: 1.4rem;
+      }
+      .text {
+        width: 100%;
+        font-size: 1rem;
+        line-height: 30px;
+      }
+    }
+    .github {
+      a img {
+        width: 35px;
+        height: 35px;
+      }
+    }
+  }
+}
+// ------------------------ extra sizes to fix --------------------------
+@media (max-width: 360px) {
+  .header {
+    .content {
+      .title p {
+        font-size: 35px;
+        .width-100 {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+  .description {
+    .what-is-content,
+    .reason-content,
+    .guide-content {
+      .title {
+        font-size: 1.2rem;
+      }
+      .text {
+        font-size: 14px;
+        line-height: 25px;
+      }
+    }
+  }
+}
+@media (max-width: 320px) {
+  .description {
+    .what-is-content,
+    .reason-content,
+    .guide-content {
+      .title {
+        font-size: 1.2rem;
+      }
+      .text {
+        font-size: 12px;
+        line-height: 20px;
+      }
+    }
+  }
 }
