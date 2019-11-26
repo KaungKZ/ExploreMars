@@ -1,0 +1,221 @@
+@import url("https://fonts.googleapis.com/css?family=Audiowide|Josefin+Sans|Orbitron:400,700&display=swap");
+
+// ============================= Global variables ================================
+$primary-title: "Audiowide", cursive;
+$secondary-title: "Orbitron", sans-serif;
+$content: "Josefin Sans", sans-serif;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  width: 100%;
+  height: 100vh;
+
+  background-image: url(../images/main-app-bg.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  position: relative;
+  transition: background-image 200ms;
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background: #000;
+    opacity: 0.6;
+    top: 0;
+    left: 0;
+    z-index: 0;
+  }
+}
+.select-options {
+  z-index: 10;
+  width: 80%;
+  margin: auto;
+  height: 20vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+
+  select {
+    font-family: $secondary-title;
+    background: transparent;
+    border: none;
+    color: #fff;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: "";
+    padding-right: 35px;
+    cursor: pointer;
+    &::-ms-expand {
+      display: none;
+    }
+  }
+  .options-for-main,
+  .extra-options-for-temperatures {
+    position: relative;
+    select {
+      font-size: 3.5rem;
+      option {
+        font-size: 1rem;
+        color: #000;
+      }
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      width: 35px;
+      height: 20px;
+      pointer-events: none;
+      top: 50%;
+      right: 0%;
+      background-image: url(../images/chevron-down-solid.svg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+  }
+  .extra-options-for-temperatures {
+    select {
+      font-size: 1.2rem;
+      padding-right: 20px;
+    }
+
+    &::after {
+      width: 20px;
+      height: 15px;
+      transform: translateY(-35%);
+    }
+  }
+}
+.main-for-temperature {
+  // transition: all 400ms;
+  .container-for-temperature {
+    width: 90%;
+    margin: auto;
+    z-index: 100;
+    position: relative;
+
+    .content {
+      width: 100%;
+      height: 60vh;
+      .box {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        justify-content: space-between;
+        align-items: center;
+
+        .air-temperature,
+        .wind-speed,
+        .pressure {
+          color: #fff;
+          .title {
+            padding-bottom: 20px;
+            font-size: 1.5rem;
+            font-family: $primary-title;
+          }
+          .info {
+            font-family: $content;
+            .min,
+            .avg,
+            .max {
+              padding: 30px 0;
+              font-size: 1.2rem;
+              width: 100%;
+              display: flex;
+              justify-content: space-between;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.did-you-know {
+  z-index: 10;
+  position: relative;
+  width: 45%;
+  margin: auto;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  flex-direction: column-reverse;
+  text-align: center;
+  color: #fff;
+  border-radius: 15px;
+  .box {
+    border-radius: 15px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    -webkit-box-shadow: 0px 10px 5px 0px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 0px 10px 5px 0px rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 10px 5px 0px rgba(0, 0, 0, 0.4);
+
+    .header {
+      // font-weight: 700;
+      font-size: 1.8rem;
+      font-family: $secondary-title;
+    }
+    .fact {
+      font-size: 1.3rem;
+      padding: 20px;
+      font-family: $content;
+    }
+  }
+  .queue {
+    font-size: 1.2rem;
+    display: block;
+    font-family: $content;
+
+    p {
+      padding: 10px;
+    }
+  }
+}
+.active {
+  border: 1px solid #fff;
+  height: 15vh;
+  // justify-content: space-around;
+  width: 40%;
+
+  .box {
+    box-shadow: none;
+    background-color: transparent;
+    padding: 0;
+    .header {
+      font-size: 1.5rem;
+    }
+    .fact {
+      font-size: 1.1rem;
+      padding: 15px;
+    }
+  }
+  .queue {
+    display: none;
+  }
+  // transform: translateY(-10px);
+}
+.go-back-btn {
+  position: absolute;
+  width: 50px;
+  height: 35px;
+  top: 90%;
+  left: 10%;
+  transform: translate(-10%, -90%);
+  z-index: 99;
+
+  img {
+    width: 50px;
+    height: 35px;
+  }
+}
