@@ -2,7 +2,7 @@
 # ExploreMars
 # https://laughing-bardeen-457411.netlify.com/
 
-> **Only temperature page will work (not responsive yet).**
+> **Only landing and temperature page will work (not responsive yet).**
 
 ## Project Description 
 
