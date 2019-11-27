@@ -6,7 +6,7 @@
 
 ## Project Description 
 
-ExploreMars will let the users know the temperatures, Mars planet summary and random rover images on mars by selecting three different options.
+Users will be able to choose between weather of mars, Mars planet summary and random images on mars taken by rovers.
 
 
 ## What is your motivation for creating this project?
@@ -34,7 +34,6 @@ No 3rd party JS libraries
 
 ## Will you try to implement any stretch features?
 
-Haven't thought about it yet.
 
 ## What will be your process?
 
