@@ -1,28 +1,23 @@
-// ============= steps =================
-
 // variables
+
 const proxy = "https://cors-anywhere.herokuapp.com/";
 const nasaKey = "rdWxphCszg82O9eZjLornCA6z5FJEFL2CgMd9Cod";
 const dates = document.querySelector("#select-for-dates");
-
 const didYouKnow = document.querySelector(".did-you-know");
+const divForTemperature = document.querySelector(".main-for-temperature");
+const divForWiki = document.querySelector(".main-for-wiki");
+const divForRovers = document.querySelector(".main-for-rovers");
+const options = document.querySelectorAll(
+  "#select-for-temperature [data-active]"
+);
+const selection = document.querySelector("#select-for-temperature");
 let isFirstTime = true;
+const goBackBtn = document.querySelector(".go-back-btn");
 
 // send request to nasa api for weather and generate html inside function 1 and display (default function)
 
 function requestToNASAtemperature() {
-  if (isFirstTime == true) {
-    initForFirst();
-    isFirstTime = false;
-  }
-
-  document.body.style.backgroundImage = "url(../images/temperatures-bg.jpg)";
-  didYouKnow.classList.remove("active");
-  const extraOptions = document.querySelector(
-    ".extra-options-for-temperatures"
-  );
-  extraOptions.style.display = "block";
-
+  initForTemperature();
   const temperatuerUrl = `https://api.nasa.gov/insight_weather/?api_key=${nasaKey}&feedtype=json&ver=1.0`;
 
   fetch(temperatuerUrl)
@@ -89,6 +84,7 @@ function requestToNASAtemperature() {
       const queueDiv = document.querySelector(".queue");
       if (queueDiv) queueDiv.remove();
       didYouKnow.classList.add("active");
+      options.forEach(option => (option.disabled = false));
     })
     .catch(err => console.log(err));
 }
@@ -100,7 +96,6 @@ function htmlForTemperatures(
   finalArrayOfWindSpeedValues,
   finalArrayOfPressureValues
 ) {
-  const divForTemperature = document.querySelector(".main-for-temperature");
   const arr = [];
   for (let i = 0; i < 7; i++) {
     arr.push(
@@ -133,7 +128,7 @@ function htmlForTemperatures(
 
   div.innerHTML = `   
     
-      <div class="content">
+      
         <div class="box box-for-temperature">
           <div class="air-temperature">
             <div class="title">
@@ -196,37 +191,31 @@ function htmlForTemperatures(
             </div>
           </div>
         </div>
-      </div>
+      
   `;
   divForTemperature.appendChild(div);
 
   let minValueForTemp = document.querySelector(
-    ".content .box .air-temperature .min-value"
+    ".box .air-temperature .min-value"
   );
   let avgValueForTemp = document.querySelector(
-    ".content .box .air-temperature .avg-value"
+    ".box .air-temperature .avg-value"
   );
   let maxValueForTemp = document.querySelector(
-    ".content .box .air-temperature .max-value"
+    ".box .air-temperature .max-value"
   );
   let minValueForWindSpeed = document.querySelector(
-    ".content .box .wind-speed .min-value"
+    ".box .wind-speed .min-value"
   );
   let avgValueForWindSpeed = document.querySelector(
-    ".content .box .wind-speed .avg-value"
+    ".box .wind-speed .avg-value"
   );
   let maxValueForWindSpeed = document.querySelector(
-    ".content .box .wind-speed .max-value"
+    ".box .wind-speed .max-value"
   );
-  let minValueForPressure = document.querySelector(
-    ".content .box .pressure .min-value"
-  );
-  let avgValueForPressure = document.querySelector(
-    ".content .box .pressure .avg-value"
-  );
-  let maxValueForPressure = document.querySelector(
-    ".content .box .pressure .max-value"
-  );
+  let minValueForPressure = document.querySelector(".box .pressure .min-value");
+  let avgValueForPressure = document.querySelector(".box .pressure .avg-value");
+  let maxValueForPressure = document.querySelector(".box .pressure .max-value");
   dates.addEventListener("change", () => {
     let selectedDateIndex = dates.options[dates.selectedIndex].index;
 
@@ -364,57 +353,176 @@ function htmlForTemperatures(
 
 // if a user selects summary,remove and hide previous parts send request to wiki api to get the summary and generate html inside function and display
 
-// function to clear the previous contents
+function requestToWikiSummary() {
+  initForWiki();
 
-function initForWikiAndRover() {
-  didYouKnow.classList.remove("active");
-  const extraOptions = document.querySelector(
-    ".extra-options-for-temperatures"
-  );
-  const mainForTemperature = document.querySelector(".main-for-temperature");
+  const wikiSearchUrl = `https://en.wikipedia.org/api/rest_v1/page/summary/mars`;
 
-  extraOptions.style.display = "none";
-  while (dates.firstChild) {
-    dates.removeChild(dates.firstChild);
-  }
-  while (mainForTemperature.firstChild) {
-    mainForTemperature.removeChild(mainForTemperature.firstChild);
-  }
+  fetch(wikiSearchUrl)
+    .then(res => res.json())
+    .then(data => {
+      const summary = data.extract;
+
+      htmlForWikiSearch(summary);
+    })
+
+    .then(() => didYouKnow.classList.add("active"))
+    .catch(err => console.log(err));
 }
 
-function requestToWikiSummary() {
-  initForWikiAndRover();
-  document.body.style.backgroundImage = "url(../images/summary-bg.jpg)";
-  document.body.style.backgroundPosition = "0% 0%";
+function htmlForWikiSearch(summary) {
+  const wikiDiv = document.createElement("div");
+  wikiDiv.className = "container container-for-wiki";
 
-  // const wikiSearchUrl = `https://en.wikipedia.org/api/rest_v1/page/summary/${newValue}`;
-  // const wikiSearchUrl = `https://en.wikipedia.org/w/api.php?action=opensearch&format=json&search=Mars_(Planet)`;
+  wikiDiv.innerHTML = `
+  <div class="content"> 
+        <p>${summary}</p>
+      </div>
+  `;
+  divForWiki.appendChild(wikiDiv);
 }
 
 // if a user selects rover, remove and hide previous parts send request to nasa api to get the images and generate html inside function and display
 
 function requestToNASAroverImgs() {
-  initForWikiAndRover();
-  document.body.style.backgroundImage = "url(../images/rovers-bg.jpg)";
+  initForFirst();
+  initForRovers();
 
-  // const urlForRover = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=${nasaKey}`;
-  // const roverAPI = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=${nasaKey}`;
+  const roverUrl = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=${nasaKey}`;
+
+  fetch(roverUrl)
+    .then(res => res.json())
+    .then(data => {
+      let arrForImgs = Object.values(data)[0];
+      let randomImgs = [];
+      let arrForImgInfos = [];
+      for (let i = 0; i < 4; i++) {
+        let randomForRoverImgs = Math.floor(Math.random() * arrForImgs.length);
+        const imgs = arrForImgs[randomForRoverImgs].img_src;
+        const infos = arrForImgs[randomForRoverImgs];
+        randomImgs.push(imgs);
+        arrForImgInfos.push(infos);
+      }
+
+      htmlForRovers(randomImgs);
+    })
+    .then(() => {
+      didYouKnow.classList.add("active");
+      const queueDiv = document.querySelector(".queue");
+      if (queueDiv) queueDiv.remove();
+      options.forEach(option => (option.disabled = false));
+    })
+    .catch(err => console.log(err));
 }
+
+function htmlForRovers(randomImgs) {
+  const imgsDiv = document.createElement("div");
+  imgsDiv.className = "container container-for-rovers";
+  imgsDiv.innerHTML = `
+  <div class="text">
+        <p>
+          Following images are the random images of mars taken by NASA rovers.
+          Hover the image or click the link to get to know more about NASA
+          rovers.
+        </p>
+      </div>
+      <div class = 'images'>
+  <div class="img img1">
+  <img src="${randomImgs[0]}" alt="">
+  <p></p>
+</div>
+<div class="img img2">
+  <img src="${randomImgs[1]}" alt="">
+</div>
+<div class="img img3">
+  <img src="${randomImgs[2]}" alt="">
+</div>
+<div class="img img4">
+  <img src="${randomImgs[3]}" alt="">
+</div>
+</div>`;
+
+  divForRovers.appendChild(imgsDiv);
+}
+
 // did you know facts function
+
 function didYouKnowFacts() {
   const facts = [];
 }
-// function to display wait message
+
+// initial functions
 
 function initForFirst() {
   const newDiv = document.createElement("div");
   newDiv.className = "queue";
   newDiv.innerHTML =
-    "<p>Please wait a few seconds</p><p> Our rocket is coming from Mars with 186,282 miles per second by carrying your data !</p>";
+    "<p>Please wait a few seconds</p><p> Our rocket is coming from Mars with <span class = 'color'>186,282</span> miles per second by carrying your data !</p>";
   didYouKnow.appendChild(newDiv);
 }
+function initForTemperature() {
+  if (isFirstTime == true) {
+    initForFirst();
+    isFirstTime = false;
+  }
+
+  while (divForWiki.firstChild) {
+    divForWiki.removeChild(divForWiki.firstChild);
+  }
+  while (divForRovers.firstChild) {
+    divForRovers.removeChild(divForRovers.firstChild);
+  }
+  document.body.style.backgroundImage = "url(../images/temperatures-bg.jpg)";
+  document.body.style.backgroundPosition = "center center";
+  didYouKnow.classList.remove("active");
+  const extraOptions = document.querySelector(
+    ".extra-options-for-temperatures"
+  );
+  extraOptions.style.display = "block";
+  extraOptions.style.pointerEvents = "all";
+  options.forEach(option => (option.disabled = true));
+}
+function initForRovers() {
+  didYouKnow.classList.remove("active");
+  const extraOptions = document.querySelector(
+    ".extra-options-for-temperatures"
+  );
+  extraOptions.style.display = "none";
+  extraOptions.style.pointerEvents = "none";
+  while (dates.firstChild) {
+    dates.removeChild(dates.firstChild);
+  }
+  while (divForTemperature.firstChild) {
+    divForTemperature.removeChild(divForTemperature.firstChild);
+  }
+  while (divForWiki.firstChild) {
+    divForWiki.removeChild(divForWiki.firstChild);
+  }
+  document.body.style.backgroundImage = "url(../images/rovers-bg.jpg)";
+  document.body.style.backgroundPosition = "center center";
+  options.forEach(option => (option.disabled = true));
+}
+function initForWiki() {
+  didYouKnow.classList.remove("active");
+  const extraOptions = document.querySelector(
+    ".extra-options-for-temperatures"
+  );
+  extraOptions.style.display = "none";
+  extraOptions.style.pointerEvents = "none";
+  while (dates.firstChild) {
+    dates.removeChild(dates.firstChild);
+  }
+  while (divForTemperature.firstChild) {
+    divForTemperature.removeChild(divForTemperature.firstChild);
+  }
+  while (divForRovers.firstChild) {
+    divForRovers.removeChild(divForRovers.firstChild);
+  }
+  document.body.style.backgroundImage = "url(../images/summary-bg.jpg)";
+  document.body.style.backgroundPosition = "center center";
+}
+
 // event listeners
-const selection = document.querySelector("#select-for-temperature");
 
 selection.addEventListener("change", () => {
   let selectedValue = selection.options[selection.selectedIndex].value;
@@ -431,3 +539,19 @@ window.addEventListener("load", () => {
   );
   extraOptions.style.display = "none";
 });
+// let selectedValue = selection.options[selection.selectedIndex].value;
+// console.log(selectedValue);
+// window.addEventListener("onresize", () => {
+//   if (
+//     window.matchMedia("(max-width: 1024px)").matches &&
+//     selectedValue === ""
+//   ) {
+//     goBackBtn.classList.add("top-60");
+//     console.log("yes");
+//   } else if (selectedValue !== "") {
+//     goBackBtn.classList.remove("top-60");
+//     console.log("no");
+//   }
+// });
+
+// console.log(selectedValue);
