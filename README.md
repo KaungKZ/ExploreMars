@@ -1,6 +1,6 @@
 
 # ExploreMars
-# https://laughing-bardeen-457411.netlify.com/
+# https://exploremars.netlify.com/
 
 > **90% finished (go back button UI and drop down UI is not done yet)**
 
