@@ -2,7 +2,7 @@
 # ExploreMars
 # https://exploremars.netlify.com/
 
-> **90% finished (go back button UI and drop down UI is not done yet)**
+> **90% finished (go back button UI and rovers image detail still in progress)**
 
 ## Project Description 
 
