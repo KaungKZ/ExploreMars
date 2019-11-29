@@ -7,7 +7,7 @@ import {
 } from "./initFunctions.js";
 
 import { htmlForTemperatures } from "./htmlForTemp.js";
-
+import { facts } from "./funFacts.js";
 // global variables
 
 const nasaKey = "rdWxphCszg82O9eZjLornCA6z5FJEFL2CgMd9Cod";
@@ -228,9 +228,12 @@ function htmlForRovers(randomImgs) {
 // did you know facts function
 
 function didYouKnowFacts() {
-  const facts = [];
+  const marsFacts = facts;
+  const toDisplay = didYouKnow.querySelector(".box .p-fact");
+  const randomForFacts = Math.floor(Math.random() * marsFacts.length);
+  toDisplay.innerHTML = marsFacts[randomForFacts];
 }
-
+setInterval(didYouKnowFacts, 8000);
 // event listeners
 
 selection.addEventListener("change", () => {
