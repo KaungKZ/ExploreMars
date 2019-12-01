@@ -65,6 +65,13 @@ body::after {
   display: none;
 }
 
+.select-options select option {
+  height: 40px;
+  padding: 10px;
+  border-radius: 50px;
+  background: #000;
+}
+
 .select-options .options-for-main,
 .select-options .extra-options-for-temperatures {
   position: relative;
@@ -78,7 +85,7 @@ body::after {
 .select-options .options-for-main select option,
 .select-options .extra-options-for-temperatures select option {
   font-size: 1rem;
-  color: #000;
+  color: #fff;
 }
 
 .select-options .options-for-main::after,
@@ -249,8 +256,80 @@ body::after {
   height: 100%;
 }
 
+.main-for-rovers .container-for-rovers .images .img .info {
+  opacity: 0;
+  pointer-events: none;
+  text-align: center;
+  z-index: 100;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 1rem;
+  color: #fff;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 100%;
+  height: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-transition: opacity 400ms;
+  transition: opacity 400ms;
+}
+
+.main-for-rovers .container-for-rovers .images .img .info p:first-child,
+.main-for-rovers .container-for-rovers .images .img .info p:nth-child(3n) {
+  font-weight: 700;
+}
+
+.main-for-rovers .container-for-rovers .images .img .info a {
+  margin: 0 auto;
+  width: 80%;
+  text-decoration: none;
+  color: #fff;
+  border: 1px solid #fff;
+  font-family: "Josefin Sans", sans-serif;
+  padding: 2%;
+  background: transparent;
+  cursor: pointer;
+  -webkit-transition: background 400ms;
+  transition: background 400ms;
+}
+
+.main-for-rovers .container-for-rovers .images .img .info a:hover {
+  background: #fff;
+  color: #000;
+}
+
 .main-for-rovers .container-for-rovers .images .img::after {
   content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0;
+  z-index: 1;
+  -webkit-transition: opacity 300ms;
+  transition: opacity 300ms;
+}
+
+.main-for-rovers .container-for-rovers .images .img:hover .info {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.main-for-rovers .container-for-rovers .images .img:hover::after {
+  opacity: 0.6;
 }
 
 .did-you-know {
@@ -360,6 +439,9 @@ body::after {
   body {
     height: 120vh;
   }
+  body::after {
+    height: 120vh;
+  }
   .select-options {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
@@ -467,6 +549,9 @@ body::after {
 
 @media (min-width: 769px) and (max-width: 1024px) {
   body {
+    height: 120vh;
+  }
+  body::after {
     height: 120vh;
   }
   .select-options {
@@ -580,6 +665,9 @@ body::after {
   body {
     height: 140vh;
   }
+  body::after {
+    height: 140vh;
+  }
   .select-options {
     -webkit-box-pack: space-evenly;
         -ms-flex-pack: space-evenly;
@@ -678,6 +766,12 @@ body::after {
     -ms-grid-rows: (120px)[4];
         grid-template-rows: repeat(4, 120px);
     gap: 20px;
+  }
+  .main-for-rovers .container-for-rovers .images .img .info {
+    font-size: 12px;
+  }
+  .main-for-rovers .container-for-rovers .images .img .info a {
+    font-size: 12px;
   }
   .did-you-know {
     width: 70%;
