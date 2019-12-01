@@ -8,13 +8,14 @@ import {
 
 import { htmlForTemperatures } from "./htmlForTemp.js";
 import { facts } from "./funFacts.js";
+import { htmlForRovers } from "./htmlForRovers.js";
 // global variables
 
 const nasaKey = "rdWxphCszg82O9eZjLornCA6z5FJEFL2CgMd9Cod";
 const dates = document.querySelector("#select-for-dates");
 const didYouKnow = document.querySelector(".did-you-know");
 const divForWiki = document.querySelector(".main-for-wiki");
-const divForRovers = document.querySelector(".main-for-rovers");
+
 const options = document.querySelectorAll(
   "#select-for-temperature [data-active]"
 );
@@ -173,13 +174,10 @@ function requestToNASAroverImgs() {
     .then(data => {
       let arrForImgs = Object.values(data)[0];
       let randomImgs = [];
-      let arrForImgInfos = [];
       for (let i = 0; i < 4; i++) {
         let randomForRoverImgs = Math.floor(Math.random() * arrForImgs.length);
-        const imgs = arrForImgs[randomForRoverImgs].img_src;
-        const infos = arrForImgs[randomForRoverImgs];
+        const imgs = arrForImgs[randomForRoverImgs];
         randomImgs.push(imgs);
-        arrForImgInfos.push(infos);
       }
 
       htmlForRovers(randomImgs);
@@ -193,38 +191,6 @@ function requestToNASAroverImgs() {
     .catch(err => console.log(err));
 }
 
-// function for generating html and displaying images
-
-function htmlForRovers(randomImgs) {
-  const imgsDiv = document.createElement("div");
-  imgsDiv.className = "container container-for-rovers";
-  imgsDiv.innerHTML = `
-  <div class="text">
-        <p>
-          Following images are the random images of mars taken by NASA rovers.
-          Hover the image or click the link to get to know more about NASA
-          rovers.
-        </p>
-      </div>
-      <div class = 'images'>
-  <div class="img img1">
-  <img src="${randomImgs[0]}" alt="">
-  <p></p>
-</div>
-<div class="img img2">
-  <img src="${randomImgs[1]}" alt="">
-</div>
-<div class="img img3">
-  <img src="${randomImgs[2]}" alt="">
-</div>
-<div class="img img4">
-  <img src="${randomImgs[3]}" alt="">
-</div>
-</div>`;
-
-  divForRovers.appendChild(imgsDiv);
-}
-
 // did you know facts function
 
 function didYouKnowFacts() {
@@ -234,6 +200,7 @@ function didYouKnowFacts() {
   toDisplay.innerHTML = marsFacts[randomForFacts];
 }
 setInterval(didYouKnowFacts, 8000);
+
 // event listeners
 
 selection.addEventListener("change", () => {
