@@ -2,6 +2,8 @@
 # ExploreMars
 # https://exploremars.netlify.com/
 
+## How to run
+Install live sass compiler extension => click Watch Sass
 
 ## Project Description 
 
