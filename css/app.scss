@@ -225,6 +225,7 @@ body {
           flex-direction: column;
           justify-content: space-evenly;
           transition: opacity 400ms;
+          transform: translateY(100%);
 
           p:first-child,
           p:nth-child(3n) {
@@ -264,6 +265,7 @@ body {
         &:hover .info {
           opacity: 1;
           pointer-events: all;
+          transform: translateY(0%);
         }
         &:hover::after {
           opacity: 0.6;

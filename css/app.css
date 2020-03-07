@@ -283,6 +283,8 @@ body::after {
           justify-content: space-evenly;
   -webkit-transition: opacity 400ms;
   transition: opacity 400ms;
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
 }
 
 .main-for-rovers .container-for-rovers .images .img .info p:first-child,
@@ -326,6 +328,8 @@ body::after {
 .main-for-rovers .container-for-rovers .images .img:hover .info {
   opacity: 1;
   pointer-events: all;
+  -webkit-transform: translateY(0%);
+          transform: translateY(0%);
 }
 
 .main-for-rovers .container-for-rovers .images .img:hover::after {

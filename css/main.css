@@ -60,7 +60,6 @@
 
 .header .content .app-button {
   font-family: "Orbitron", sans-serif;
-  padding: 18px 60px;
   border-radius: 10px;
   background: #b5540e;
   cursor: pointer;
@@ -72,9 +71,11 @@
 }
 
 .header .content .app-button a {
+  display: block;
   text-decoration: none;
   color: #fff;
   font-size: 2rem;
+  padding: 18px 60px;
 }
 
 .header .content .app-button:hover {
