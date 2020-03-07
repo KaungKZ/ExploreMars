@@ -37,19 +37,11 @@ function requestToNASAtemperature() {
 
       for (let i = 0; i < 7; i++) {
         const dataForweek = Object.values(data)[i];
-
         // air temperature
-
         if (dataForweek.hasOwnProperty("AT")) {
-          const airTemperatureMin = parseFloat(
-            (dataForweek.AT.mn * 9) / 5 + 32
-          ).toFixed(1);
-          const airTemperatureAvg = parseFloat(
-            (dataForweek.AT.av * 9) / 5 + 32
-          ).toFixed(1);
-          const airTemperatureMax = parseFloat(
-            (dataForweek.AT.mx * 9) / 5 + 32
-          ).toFixed(1);
+          const airTemperatureMin = celToFer(dataForweek.AT.mn);
+          const airTemperatureAvg = celToFer(dataForweek.AT.av);
+          const airTemperatureMax = celToFer(dataForweek.AT.mx);
 
           arrOfTemperatureValues.push(
             airTemperatureMin,
@@ -63,15 +55,9 @@ function requestToNASAtemperature() {
         // wind speed
 
         if (dataForweek.hasOwnProperty("HWS")) {
-          const windSpeedMin = parseFloat(dataForweek.HWS.mn * 2.237).toFixed(
-            1
-          );
-          const windSpeedAvg = parseFloat(dataForweek.HWS.av * 2.237).toFixed(
-            1
-          );
-          const windSpeedMax = parseFloat(dataForweek.HWS.mx * 2.237).toFixed(
-            1
-          );
+          const windSpeedMin = msTomph(dataForweek.HWS.mn);
+          const windSpeedAvg = msTomph(dataForweek.HWS.av);
+          const windSpeedMax = msTomph(dataForweek.HWS.mx);
 
           arrOfWindSpeedValues.push(windSpeedMin, windSpeedAvg, windSpeedMax);
         } else {
@@ -82,7 +68,6 @@ function requestToNASAtemperature() {
 
         if (dataForweek.hasOwnProperty("PRE")) {
           const PressureMin = parseFloat(dataForweek.PRE.mn).toFixed(1);
-
           const PressureAvg = parseFloat(dataForweek.PRE.av).toFixed(1);
           const PressureMax = parseFloat(dataForweek.PRE.mx).toFixed(1);
           arrOfPressureValues.push(PressureMin, PressureAvg, PressureMax);
@@ -95,19 +80,12 @@ function requestToNASAtemperature() {
         arrOfDates.push(date);
       }
 
-      const [
-        finalArrayOfTemperatureValues,
-        finalArrayOfPressureValues,
-        finalArrayOfWindSpeedValues
-      ] = [
-        arrOfTemperatureValues.reverse(),
-        arrOfPressureValues.reverse(),
-        arrOfWindSpeedValues.reverse()
-      ];
+      arrOfTemperatureValues.reverse();
+      arrOfPressureValues.reverse();
+      arrOfWindSpeedValues.reverse();
+      arrOfDates.reverse();
 
-      const finalArrayOfDates = arrOfDates.reverse();
-
-      finalArrayOfDates.forEach(date => {
+      arrOfDates.forEach(date => {
         const dateOption = document.createElement("option");
         dateOption.innerHTML = date;
         dateOption.value = date;
@@ -115,9 +93,9 @@ function requestToNASAtemperature() {
       });
 
       htmlForTemperatures(
-        finalArrayOfTemperatureValues,
-        finalArrayOfWindSpeedValues,
-        finalArrayOfPressureValues
+        arrOfTemperatureValues,
+        arrOfWindSpeedValues,
+        arrOfPressureValues
       );
     })
     .then(() => {
@@ -129,6 +107,13 @@ function requestToNASAtemperature() {
     .catch(err => console.log(err));
 }
 
+// helper functions for temperatures
+function celToFer(value) {
+  return parseFloat((value * 9) / 5 + 32).toFixed(1);
+}
+function msTomph(value) {
+  return parseFloat(value * 2.237).toFixed(1);
+}
 // if a user selects summary,remove and hide previous parts send request to wiki api to get the summary, generate html and display
 
 function requestToWikiSummary() {
@@ -192,11 +177,16 @@ function requestToNASAroverImgs() {
 }
 
 // did you know facts function
-
+let prevFact = null;
 function didYouKnowFacts() {
   const marsFacts = facts;
   const toDisplay = didYouKnow.querySelector(".box .p-fact");
-  const randomForFacts = Math.floor(Math.random() * marsFacts.length);
+  let randomForFacts = Math.floor(Math.random() * marsFacts.length);
+
+  if (randomForFacts === prevFact) {
+    randomForFacts = Math.floor(Math.random() * marsFacts.length);
+  }
+  prevFact = randomForFacts;
   toDisplay.innerHTML = marsFacts[randomForFacts];
 }
 setInterval(didYouKnowFacts, 8000);
