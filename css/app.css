@@ -48,7 +48,10 @@ body::after {
 }
 
 .select-options select {
+<<<<<<< HEAD
   width: 100%;
+=======
+>>>>>>> 82fe7098c5140d78cce346a5af1263c7b9baae0c
   font-family: "Orbitron", sans-serif;
   background: transparent;
   border: none;
@@ -179,6 +182,7 @@ body::after {
           justify-content: space-between;
 }
 
+<<<<<<< HEAD
 .main-for-APOD {
   height: auto;
 }
@@ -194,6 +198,15 @@ body::after {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+=======
+.main-for-wiki .container-for-wiki {
+  width: 70%;
+  margin: auto;
+  height: 60vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+>>>>>>> 82fe7098c5140d78cce346a5af1263c7b9baae0c
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -204,6 +217,7 @@ body::after {
   position: relative;
 }
 
+<<<<<<< HEAD
 .main-for-APOD .container-for-APOD .APOD-title {
   text-align: justify;
   font-family: "Josefin Sans", sans-serif;
@@ -251,6 +265,17 @@ body::after {
 
 .main-for-APOD .container-for-APOD .show-hide .hide {
   display: inline;
+=======
+.main-for-wiki .container-for-wiki .content {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+.main-for-wiki .container-for-wiki .content p {
+  line-height: 50px;
+  text-align: center;
+>>>>>>> 82fe7098c5140d78cce346a5af1263c7b9baae0c
 }
 
 .main-for-rovers .container-for-rovers {
@@ -712,6 +737,12 @@ body::after {
   body {
     height: 140vh;
   }
+<<<<<<< HEAD
+=======
+  body::after {
+    height: 140vh;
+  }
+>>>>>>> 82fe7098c5140d78cce346a5af1263c7b9baae0c
   .select-options {
     -webkit-box-pack: space-evenly;
         -ms-flex-pack: space-evenly;

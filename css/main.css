@@ -200,8 +200,15 @@
     font-size: 65px;
   }
   .header .content .app-button {
+<<<<<<< HEAD
     text-align: center;
     margin-top: 5%;
+=======
+    width: 40%;
+    text-align: center;
+    margin-top: 5%;
+    padding: 3% 6%;
+>>>>>>> 82fe7098c5140d78cce346a5af1263c7b9baae0c
   }
   .header .content .app-button a {
     font-size: 1.5rem;
@@ -229,7 +236,13 @@
   }
   .header .content .app-button {
     margin-top: 5%;
+<<<<<<< HEAD
     text-align: center;
+=======
+    width: 40%;
+    text-align: center;
+    padding: 3% 6%;
+>>>>>>> 82fe7098c5140d78cce346a5af1263c7b9baae0c
   }
   .description .what-is-content,
   .description .reason-content,
@@ -263,8 +276,15 @@
     font-size: 1.2rem;
   }
   .header .content .app-button {
+<<<<<<< HEAD
     text-align: center;
     margin-top: 6%;
+=======
+    width: 50%;
+    text-align: center;
+    margin-top: 6%;
+    padding: 6% 6%;
+>>>>>>> 82fe7098c5140d78cce346a5af1263c7b9baae0c
   }
   .header .content .app-button a {
     font-size: 1.2rem;

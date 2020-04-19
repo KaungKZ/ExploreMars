@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import url("https://fonts.googleapis.com/css?family=Audiowide|Josefin+Sans|Orbitron&display=swap");
 
 // ============================= Global variables ================================
@@ -302,3 +303,314 @@ $main-color: #b5540e;
     }
   }
 }
+=======
+@import url("https://fonts.googleapis.com/css?family=Audiowide|Josefin+Sans|Orbitron&display=swap");
+
+// ============================= Global variables ================================
+$primary-title: "Audiowide", cursive;
+$secondary-title: "Orbitron", sans-serif;
+$content: "Josefin Sans", sans-serif;
+$main-color: #b5540e;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+// =============================== Header ===========================================
+.header {
+  width: 100%;
+  height: 100vh;
+  background-image: url(../images/landing-bg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  //background-position: calc(50% + 50px);
+  //background-position: center center;
+  background-position: 40%;
+
+  .logo {
+    position: absolute;
+    top: 5%;
+    width: 90%;
+    text-align: right;
+  }
+  .content {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .title {
+      margin-top: 6%;
+      font-family: $primary-title;
+      color: #fff;
+      text-align: center;
+      p {
+        font-size: 80px;
+
+        .width-100 {
+          opacity: 0.8;
+          font-size: 2rem;
+          display: block;
+          width: 100%;
+        }
+      }
+    }
+    .app-button {
+      font-family: $secondary-title;
+
+      border-radius: 10px;
+      background: $main-color;
+      cursor: pointer;
+      margin-top: 3%;
+      transition: 400ms all;
+      -webkit-box-shadow: 0px 8px 8px 0px hsla(0, 0, 0, 0.5);
+      -moz-box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.5);
+      box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.5);
+      a {
+        display: block;
+        text-decoration: none;
+        color: #fff;
+        font-size: 2rem;
+        padding: 18px 60px;
+      }
+      &:hover {
+        background: #fff;
+        a {
+          color: $main-color;
+        }
+      }
+    }
+  }
+  .go-down {
+    cursor: pointer;
+    position: absolute;
+    top: 95%;
+    left: 50%;
+    transform: translate(-50%, -95%);
+    animation: 1.5s linear 0s infinite alternate up-down;
+
+    svg {
+      -webkit-filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.5));
+      filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.5));
+    }
+    @keyframes up-down {
+      from {
+        top: 95%;
+      }
+      to {
+        top: 97%;
+      }
+    }
+  }
+}
+// ================================ Description ==========================================
+.description {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: auto;
+  height: 100vh;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 20px 0;
+
+  .what-is-content,
+  .reason-content,
+  .guide-content {
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    .title {
+      text-transform: capitalize;
+      font-family: $primary-title;
+      text-align: center;
+      font-size: 2rem;
+
+      .bold {
+        color: $main-color;
+      }
+    }
+    .text {
+      width: 80%;
+      margin: 0 auto;
+      font-family: $content;
+      font-size: 20px;
+      text-align: center;
+      line-height: 38px;
+
+      .bold {
+        color: $main-color;
+      }
+    }
+  }
+}
+// ============================ media queries ==============================
+
+// ------------------------ Small Tablet Size -----------------------------
+@media (min-width: 481px) and (max-width: 768px) {
+  .header {
+    background-position: 45%;
+
+    .content {
+      .title {
+        width: 80%;
+        margin: 6% auto 0 auto;
+
+        p {
+          font-size: 65px;
+        }
+      }
+      .app-button {
+        width: 40%;
+        text-align: center;
+        margin-top: 5%;
+        padding: 3% 6%;
+        a {
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+  .description {
+    .what-is-content,
+    .reason-content,
+    .guide-content {
+      height: 50%;
+
+      .title {
+        font-size: 1.8rem;
+      }
+      .text {
+        width: 100%;
+      }
+    }
+  }
+}
+
+// ----------------------- Normal Tablet Size -------------------------------
+@media (min-width: 769px) and (max-width: 1024px) {
+  .header {
+    background-position: 45%;
+    .content {
+      .app-button {
+        margin-top: 5%;
+        width: 40%;
+        text-align: center;
+        padding: 3% 6%;
+      }
+    }
+  }
+  .description {
+    .what-is-content,
+    .reason-content,
+    .guide-content {
+      height: 25%;
+      .text {
+        width: 100%;
+        font-size: 24px;
+      }
+    }
+  }
+}
+
+// --------------------- Phone Size --------------------------------
+@media (max-width: 480px) {
+  .header {
+    background-position: 48%;
+    .logo {
+      width: 100%;
+      text-align: center;
+    }
+    .content {
+      .title {
+        width: 80%;
+        margin: 25% auto 0 auto;
+
+        p {
+          font-size: 45px;
+          .width-100 {
+            font-size: 1.2rem;
+          }
+        }
+      }
+      .app-button {
+        width: 50%;
+        text-align: center;
+        margin-top: 6%;
+        padding: 6% 6%;
+        a {
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+  .description {
+    .what-is-content,
+    .reason-content,
+    .guide-content {
+      height: 50%;
+
+      .title {
+        font-size: 1.4rem;
+      }
+      .text {
+        width: 100%;
+        font-size: 1rem;
+        line-height: 30px;
+      }
+    }
+    .github {
+      a img {
+        width: 35px;
+        height: 35px;
+      }
+    }
+  }
+}
+// ------------------------ extra sizes to fix --------------------------
+@media (max-width: 360px) {
+  .header {
+    .content {
+      .title p {
+        font-size: 35px;
+        .width-100 {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+  .description {
+    .what-is-content,
+    .reason-content,
+    .guide-content {
+      .title {
+        font-size: 1.2rem;
+      }
+      .text {
+        font-size: 14px;
+        line-height: 25px;
+      }
+    }
+  }
+}
+@media (max-width: 320px) {
+  .description {
+    .what-is-content,
+    .reason-content,
+    .guide-content {
+      .title {
+        font-size: 1.2rem;
+      }
+      .text {
+        font-size: 12px;
+        line-height: 20px;
+      }
+    }
+  }
+}
+>>>>>>> 82fe7098c5140d78cce346a5af1263c7b9baae0c
