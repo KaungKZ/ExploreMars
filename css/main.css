@@ -1,0 +1,328 @@
+@import url("https://fonts.googleapis.com/css?family=Audiowide|Josefin+Sans|Orbitron&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.header {
+  width: 100%;
+  height: 100vh;
+  background-image: url(../images/landing-bg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 40%;
+}
+
+.header .logo {
+  position: absolute;
+  top: 5%;
+  width: 90%;
+  text-align: right;
+}
+
+.header .content {
+  width: 100%;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header .content .title {
+  margin-top: 6%;
+  font-family: "Audiowide", cursive;
+  color: #fff;
+  text-align: center;
+}
+
+.header .content .title p {
+  font-size: 80px;
+}
+
+.header .content .title p .width-100 {
+  opacity: 0.8;
+  font-size: 2rem;
+  display: block;
+  width: 100%;
+}
+
+.header .content .app-button {
+  font-family: "Orbitron", sans-serif;
+  border-radius: 10px;
+  background: #b5540e;
+  cursor: pointer;
+  margin-top: 3%;
+  -webkit-transition: 400ms all;
+  transition: 400ms all;
+  -webkit-box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.5);
+}
+
+.header .content .app-button a {
+  display: block;
+  text-decoration: none;
+  color: #fff;
+  font-size: 2rem;
+  padding: 18px 60px;
+}
+
+.header .content .app-button:hover {
+  background: #fff;
+}
+
+.header .content .app-button:hover a {
+  color: #b5540e;
+}
+
+.header .go-down {
+  cursor: pointer;
+  position: absolute;
+  top: 95%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -95%);
+          transform: translate(-50%, -95%);
+  -webkit-animation: 1.5s linear 0s infinite alternate up-down;
+          animation: 1.5s linear 0s infinite alternate up-down;
+}
+
+.header .go-down svg {
+  -webkit-filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.5));
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.5));
+}
+
+@-webkit-keyframes up-down {
+  from {
+    top: 95%;
+  }
+  to {
+    top: 97%;
+  }
+}
+
+@keyframes up-down {
+  from {
+    top: 95%;
+  }
+  to {
+    top: 97%;
+  }
+}
+
+.description {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 80%;
+  margin: auto;
+  height: 100vh;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 20px 0;
+}
+
+.description .what-is-content,
+.description .reason-content,
+.description .guide-content {
+  height: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.description .what-is-content .title,
+.description .reason-content .title,
+.description .guide-content .title {
+  text-transform: capitalize;
+  font-family: "Audiowide", cursive;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.description .what-is-content .title .bold,
+.description .reason-content .title .bold,
+.description .guide-content .title .bold {
+  color: #b5540e;
+}
+
+.description .what-is-content .text,
+.description .reason-content .text,
+.description .guide-content .text {
+  width: 80%;
+  margin: 0 auto;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 20px;
+  text-align: center;
+  line-height: 38px;
+}
+
+.description .what-is-content .text .bold,
+.description .reason-content .text .bold,
+.description .guide-content .text .bold {
+  color: #b5540e;
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .header {
+    background-position: 45%;
+  }
+  .header .content .title {
+    width: 80%;
+    margin: 6% auto 0 auto;
+  }
+  .header .content .title p {
+    font-size: 65px;
+  }
+  .header .content .app-button {
+    text-align: center;
+    margin-top: 5%;
+  }
+  .header .content .app-button a {
+    font-size: 1.5rem;
+  }
+  .description .what-is-content,
+  .description .reason-content,
+  .description .guide-content {
+    height: 50%;
+  }
+  .description .what-is-content .title,
+  .description .reason-content .title,
+  .description .guide-content .title {
+    font-size: 1.8rem;
+  }
+  .description .what-is-content .text,
+  .description .reason-content .text,
+  .description .guide-content .text {
+    width: 100%;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .header {
+    background-position: 45%;
+  }
+  .header .content .app-button {
+    margin-top: 5%;
+    text-align: center;
+  }
+  .description .what-is-content,
+  .description .reason-content,
+  .description .guide-content {
+    height: 25%;
+  }
+  .description .what-is-content .text,
+  .description .reason-content .text,
+  .description .guide-content .text {
+    width: 100%;
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    background-position: 48%;
+  }
+  .header .logo {
+    width: 100%;
+    text-align: center;
+  }
+  .header .content .title {
+    width: 80%;
+    margin: 25% auto 0 auto;
+  }
+  .header .content .title p {
+    font-size: 45px;
+  }
+  .header .content .title p .width-100 {
+    font-size: 1.2rem;
+  }
+  .header .content .app-button {
+    text-align: center;
+    margin-top: 6%;
+  }
+  .header .content .app-button a {
+    font-size: 1.2rem;
+  }
+  .description .what-is-content,
+  .description .reason-content,
+  .description .guide-content {
+    height: 50%;
+  }
+  .description .what-is-content .title,
+  .description .reason-content .title,
+  .description .guide-content .title {
+    font-size: 1.4rem;
+  }
+  .description .what-is-content .text,
+  .description .reason-content .text,
+  .description .guide-content .text {
+    width: 100%;
+    font-size: 1rem;
+    line-height: 30px;
+  }
+  .description .github a img {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+@media (max-width: 360px) {
+  .header .content .title p {
+    font-size: 35px;
+  }
+  .header .content .title p .width-100 {
+    font-size: 1rem;
+  }
+  .description .what-is-content .title,
+  .description .reason-content .title,
+  .description .guide-content .title {
+    font-size: 1.2rem;
+  }
+  .description .what-is-content .text,
+  .description .reason-content .text,
+  .description .guide-content .text {
+    font-size: 14px;
+    line-height: 25px;
+  }
+}
+
+@media (max-width: 320px) {
+  .description .what-is-content .title,
+  .description .reason-content .title,
+  .description .guide-content .title {
+    font-size: 1.2rem;
+  }
+  .description .what-is-content .text,
+  .description .reason-content .text,
+  .description .guide-content .text {
+    font-size: 12px;
+    line-height: 20px;
+  }
+}
+/*# sourceMappingURL=main.css.map */
