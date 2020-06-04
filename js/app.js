@@ -121,9 +121,16 @@ function msTomph(value) {
 }
 // if a user selects summary,remove and hide previous parts send request to APOD api to get the summary, generate html and display
 
+// console.log(year, month, day);
+
 function requestToAPOD() {
   initForAPOD();
-  const APODUrl = `https://api.nasa.gov/planetary/apod?date=2020-4-15&api_key=${nasaKey}`;
+  // const date = new Date();
+
+  // const year = date.getFullYear();
+  // const month = date.getMonth() + 1;
+  // const day = date.getDay();
+  const APODUrl = `https://api.nasa.gov/planetary/apod?&api_key=${nasaKey}`;
 
   fetch(APODUrl)
     .then((data) => data.json())

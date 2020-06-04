@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Audiowide|Josefin+Sans|Orbitron:400,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Audiowide|Josefin+Sans|Open+Sans|Orbitron:400,700&display=swap");
 
 // ============================= Global variables ================================
 $primary-title: "Audiowide", cursive;
@@ -165,8 +165,8 @@ body {
     position: relative;
     .APOD-title {
       text-align: justify;
-      font-family: $content;
-      font-size: 1.2rem;
+      font-family: "Open Sans", sans-serif;
+      font-size: 1rem;
       color: #fff;
       line-height: 40px;
       margin-top: 30px;
@@ -366,7 +366,7 @@ body {
   border: 1px solid #fff;
   height: 15vh;
   width: 40%;
-  // margin: 30px auto;
+  margin: 30px auto;
 
   .box {
     box-shadow: none;
@@ -393,7 +393,7 @@ body {
   height: 35px;
   top: 90%;
   left: 10%;
-  transform: translate(-10%, -90%);
+  // transform: translate(-10%, -90%);
   z-index: 99;
 
   img {
@@ -487,6 +487,7 @@ body {
     width: 55%;
     height: 20vh;
     border: none;
+
     .box {
       border: 1px solid #fff;
       padding: 10px;
