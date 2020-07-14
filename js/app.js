@@ -35,13 +35,15 @@ function requestToNASAtemperature() {
   fetch(temperatuerUrl)
     .then((res) => res.json())
     .then((data) => {
+      // console.log(data);
       let arrOfTemperatureValues = [];
       let arrOfDates = [];
       let arrOfWindSpeedValues = [];
       let arrOfPressureValues = [];
 
-      for (let i = 0; i < 7; i++) {
+      for (let i = 0; i < data.sol_keys.length; i++) {
         const dataForweek = Object.values(data)[i];
+
         // air temperature
         if (dataForweek.hasOwnProperty("AT")) {
           const airTemperatureMin = celToFer(dataForweek.AT.mn);
@@ -80,6 +82,7 @@ function requestToNASAtemperature() {
           arrOfPressureValues.push("-", "-", "-");
         }
 
+        // console.log(dataForweek.First_UTC);
         const date = dataForweek.First_UTC.split("T")[0];
 
         arrOfDates.push(date);

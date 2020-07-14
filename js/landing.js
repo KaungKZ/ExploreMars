@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const goDownBtn = document.querySelector(".go-down");
 
 function smoothScroll(target, duration) {
@@ -29,8 +28,8 @@ function smoothScroll(target, duration) {
 goDownBtn.addEventListener("click", () => {
   smoothScroll(".description", 1000);
 });
-=======
-const goDownBtn = document.querySelector(".go-down");
+
+// const goDownBtn = document.querySelector(".go-down");
 
 function smoothScroll(target, duration) {
   const goal = document.querySelector(target);
@@ -60,4 +59,3 @@ function smoothScroll(target, duration) {
 goDownBtn.addEventListener("click", () => {
   smoothScroll(".description", 1000);
 });
->>>>>>> 82fe7098c5140d78cce346a5af1263c7b9baae0c
