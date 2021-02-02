@@ -44,6 +44,8 @@ function requestToNASAtemperature() {
       for (let i = 0; i < data.sol_keys.length; i++) {
         const dataForweek = Object.values(data)[i];
 
+        // console.log(dataForweek);
+
         // air temperature
         if (dataForweek.hasOwnProperty("AT")) {
           const airTemperatureMin = celToFer(dataForweek.AT.mn);

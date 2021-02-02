@@ -28,6 +28,8 @@ function htmlForTemperatures(
     [arr[18], arr[19], arr[20]],
   ];
 
+  // console.log(seventh);
+
   const div = document.createElement("div");
   div.className = "container container-for-temperature";
 
@@ -42,16 +44,22 @@ function htmlForTemperatures(
               <div class="info">
                 <div class="min">
                   <div class="header">Min</div>
-                  <div class="value"><span class = 'min-value'>${seventh[0][2]}</span>° F</div>
+                  <div class="value"><span class = 'min-value'>${
+                    seventh[0][2]
+                  }${seventh[0][2] === "-" ? "" : "</span>° F"}</div>
                 </div>
   
                 <div class="avg">
                   <div class="header">Avg</div>
-                  <div class="value"><span class = 'avg-value'>${seventh[0][1]}</span>° F</div>
+                  <div class="value"><span class = 'avg-value'>${
+                    seventh[0][1]
+                  }${seventh[0][1] === "-" ? "" : "</span>° F"}</div>
                 </div>
                 <div class="max">
                   <div class="header">Max</div>
-                  <div class="value"><span class = 'max-value'>${seventh[0][0]}</span>° F</div>
+                  <div class="value"><span class = 'max-value'>${
+                    seventh[0][0]
+                  }${seventh[0][0] === "-" ? "" : "</span>° F"}</div>
                 </div>
               </div>
             </div>
@@ -62,16 +70,22 @@ function htmlForTemperatures(
               <div class="info">
                 <div class="min">
                   <div class="header">Min</div>
-                  <div class="value"><span class = 'min-value'>${seventh[1][2]}</span></div>
+                  <div class="value"><span class = 'min-value'>${
+                    seventh[1][2]
+                  }</span></div>
                 </div>
   
                 <div class="avg">
                   <div class="header">Avg</div>
-                  <div class="value"><span class = 'avg-value'>${seventh[1][1]}</span></div>
+                  <div class="value"><span class = 'avg-value'>${
+                    seventh[1][1]
+                  }</span></div>
                 </div>
                 <div class="max">
                   <div class="header">Max</div>
-                  <div class="value"><span class = 'max-value'>${seventh[1][0]}</span></div>
+                  <div class="value"><span class = 'max-value'>${
+                    seventh[1][0]
+                  }</span></div>
                 </div>
               </div>
             </div>
@@ -82,16 +96,22 @@ function htmlForTemperatures(
               <div class="info">
                 <div class="min">
                   <div class="header">Min</div>
-                  <div class="value"><span class = 'min-value'>${seventh[2][2]}</span></div>
+                  <div class="value"><span class = 'min-value'>${
+                    seventh[2][2]
+                  }</span></div>
                 </div>
   
                 <div class="avg">
                   <div class="header">Avg</div>
-                  <div class="value"><span class = 'avg-value'>${seventh[2][1]}</span></div>
+                  <div class="value"><span class = 'avg-value'>${
+                    seventh[2][1]
+                  }</span></div>
                 </div>
                 <div class="max">
                   <div class="header">Max</div>
-                  <div class="value"><span class = 'max-value'>${seventh[2][0]}</span></div>
+                  <div class="value"><span class = 'max-value'>${
+                    seventh[2][0]
+                  }</span></div>
                 </div>
               </div>
             </div>
